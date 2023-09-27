@@ -1,6 +1,6 @@
 <template>
   <main class="main">
-    Main
+    <RouterView />
   </main>
 </template>
 
@@ -8,5 +8,7 @@
 .main {
   background-color: var(--color-background-soft);
   flex: 1;
+  display: flex;
+  max-height: calc(100vh - 120px);
 }
 </style>

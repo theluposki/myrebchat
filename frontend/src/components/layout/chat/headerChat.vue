@@ -1,12 +1,23 @@
+<script setup>
+import { useRouter } from "vue-router"
+
+const { back } = useRouter();
+</script>
+
 <template>
   <header class="header-main">
-    <div class="left"></div>
-    <div class="center">MyReb</div>
-    <div class="right">
-      <div class="left-intern">@luposki</div>
-      <div class="right-intern">
+    <div class="left">
+      <div class="btn-back" @click="back">
+        <i class="ri-arrow-left-line"></i>
+      </div>
+      <div class="left-intern">
         <img src="https://i.pravatar.cc/150?img=33" alt="image profile">
       </div>
+      <div class="right-intern">@luposki</div>
+    </div>
+    <div class="center">MyReb</div>
+    <div class="right">
+
     </div>
   </header>
 </template>
@@ -60,34 +71,62 @@
 }
 
 .left-intern {
-  flex: 1;
-  text-align: right;
-  font-weight: bold;
-}
-.right-intern {
   height: 40px;
   width: 40px;
   overflow: hidden;
-  background-color: tomato;
   border-radius: 4px;
   cursor: pointer;
 }
+.right-intern {
+  flex: 1;
+  text-align: left;
+  font-weight: bold;
+}
 
-.right-intern > img {
+.btn-back {
+  width: 38px;
+  height: 38px;
+
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+
+
+.btn-back:hover > i {
+  transition: transform ease .4s;
+  transform: translateX(-2px);
+}
+.btn-back:active {
+  scale: .95;
+}
+
+.btn-back i {
+  font-size: 2rem;
+}
+
+.left-intern > img {
   width: 40px;
   height: 40px;
   object-fit: cover;
   background-size: cover;
 }
 
-.right-intern > img:hover {
+.left-intern > img:hover {
   transition: all ease-in-out .4s;
   scale: 1.2;
 }
 
 @media (max-width: 474px) {
-  .left-intern {
+  .center {
     display: none;
+  }
+
+  .right-intern {
+    font-size: 1.4rem;
   }
 }
 

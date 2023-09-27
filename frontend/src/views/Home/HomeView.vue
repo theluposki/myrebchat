@@ -1,12 +1,14 @@
 <script setup>
-import HeaderM from "../components/layout/main/header.vue"
-import MainM from "../components/layout/main/main.vue"
+import HeaderM from "../../components/layout/main/header.vue"
+import MainM from "../../components/layout/main/main.vue"
+import NavM from "../../components/layout/main/nav.vue"
 </script>
 
 <template>
   <main class="home">
     <HeaderM/>
     <MainM />
+    <NavM />
   </main>
 </template>
 

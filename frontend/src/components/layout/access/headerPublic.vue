@@ -1,11 +1,26 @@
+<script setup>
+import { RouterLink, useRouter } from "vue-router"
+
+const { push } = useRouter();
+
+const goLink = (path) => {
+  push(path);
+};
+</script>
 <template>
   <header class="header-main">
     <div class="left"></div>
     <div class="center">MyReb</div>
     <div class="right">
-      <div class="left-intern">@luposki</div>
+      <div class="left-intern">
+        <RouterLink class="link" to="sign-up">
+          cadastrar-se
+        </RouterLink>
+      </div>
       <div class="right-intern">
-        <img src="https://i.pravatar.cc/150?img=33" alt="image profile">
+        <button class="btn" @click="goLink('/sign-in')">
+          Acessar
+        </button>
       </div>
     </div>
   </header>
@@ -56,7 +71,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 4px;
+  gap: 12px;
 }
 
 .left-intern {
@@ -64,20 +79,19 @@
   text-align: right;
   font-weight: bold;
 }
+
+.link {
+  text-decoration: none;
+  font-size: 14px;
+  color: var(--color-text-soft);
+}
 .right-intern {
-  height: 40px;
-  width: 40px;
   overflow: hidden;
-  background-color: tomato;
   border-radius: 4px;
   cursor: pointer;
-}
-
-.right-intern > img {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .right-intern > img:hover {
@@ -85,7 +99,7 @@
   scale: 1.2;
 }
 
-@media (max-width: 474px) {
+@media (max-width: 534px) {
   .left-intern {
     display: none;
   }
